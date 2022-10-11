@@ -3,6 +3,7 @@ from selenium import webdriver
 #chrome driver must be used to invoke browser, cant be invoked directly without driver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
 
 # These 3 lines assign driver path, assign driver object and invoke browser
 #Use forwardslash with path to prevent error
@@ -33,6 +34,14 @@ driver.find_element(By.ID, "exampleCheck1").click()
 driver.find_element(By.CSS_SELECTOR, "input[name='name']").send_keys("Paddy")
 #Don't forget the hash for id elements!
 driver.find_element(By.CSS_SELECTOR, "#inlineRadio1").click()
+
+#Static dropdown identifier
+dropdown = Select(driver.find_element(By.ID, ("exampleFormControlSelect1")))
+dropdown.select_by_index(1)
+dropdown.select_by_visible_text("Female")
+dropdown.select_by_index(0)
+#Can select by value as well, no values on this page for example
+#dropdown.select_by_value()
 
 #This will submit the form by clicking on the element with a type of submit
 driver.find_element(By.XPATH, "//input[@type='submit']").click()
