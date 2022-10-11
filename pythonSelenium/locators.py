@@ -23,11 +23,16 @@ driver.find_element(By.ID, "exampleInputPassword1").send_keys("123456")
 #Clicks on specified element(Checkbox in this case)
 driver.find_element(By.ID, "exampleCheck1").click()
 
-#Custom XPATH, used for identifying elements with specified attributes
+#XPATH syntax, used for identifying elements with specified attributes
 # //tagname[@attribute='value'] -> //input[@type='submit']
+
+
+#CSS syntax- tagname[attribute='value'] -> //input[@type='submit']
 
 #Finds element by Css element (input field with name in this case), inputs Paddy into Name input field
 driver.find_element(By.CSS_SELECTOR, "input[name='name']").send_keys("Paddy")
+#Don't forget the hash for id elements!
+driver.find_element(By.CSS_SELECTOR, "#inlineRadio1").click()
 
 #This will submit the form by clicking on the element with a type of submit
 driver.find_element(By.XPATH, "//input[@type='submit']").click()
@@ -43,3 +48,9 @@ print(message)
 assert "Success" in message
 #Line below triggers error as condition is not met
 #assert "Suc1cess" in message
+
+#(//input[@type='text'])[3] Index can be used to identify specific elements with XPATH
+driver.find_element(By.XPATH, "(//input[@type='text'])[3]").send_keys("helloagain")
+
+#Clears data from specified field
+driver.find_element(By.XPATH, "(//input[@type='text'])[3]").clear()
