@@ -8,6 +8,15 @@ from selenium.webdriver.chrome.service import Service
 service_obj = Service("C:/Users/thund/Documents/ChromeDriver/chromedriver_win32/chromedriver.exe")
 driver = webdriver.Chrome(service=service_obj)
 
+#Code for using Gecko driver for firefox
+#service_obj = Service("C:/Users/thund/Documents/ChromeDriver/GeckoDriver/geckodriver.exe")
+#driver = webdriver.Firefox(service=service_obj)
+
+
+#Code for using Microsoft Edge Driver
+#service_obj = Service("C:/Users/thund/Documents/ChromeDriver/EdgeDriver/msedgedriver.exe")
+#driver = webdriver.Edge(service=service_obj)
+
 driver.maximize_window()
 
 #Opens browser with specific url
