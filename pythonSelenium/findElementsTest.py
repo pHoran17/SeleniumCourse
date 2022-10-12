@@ -29,4 +29,8 @@ for country in countries:
         country.click()
         break
 
+#print(driver.find_element(By.ID, "autosuggest").text) This didnt work, below line will
+#Use get_attribute to extract text from dynamic texts
+print(driver.find_element(By.ID, "autosuggest").get_attribute("value"))
 
+assert driver.find_element(By.ID, "autosuggest").get_attribute("value") == "India"
